@@ -25,6 +25,8 @@ outputs/sh/script.sh: outputs/txts/script.txt
 outputs/txts/script.txt: TP_MAP6009.ipynb
 	jupyter nbconvert TP_MAP6009.ipynb --to script --output outputs/txts/script
 
+experiments: 
+	mlflow server --host 127.0.0.1 --port 8080 --backend-store-uri sqlite:///data.db &
 open: TP_MAP6009.ipynb
 	jupyter execute TP_MAP6009.ipynb --allow-errors
 TP_MAP6009.ipynb:

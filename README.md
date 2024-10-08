@@ -1,5 +1,5 @@
-# TP_MAP6014
-Prédiction du risque de départ d'un employer a l'aide du dataset [turnover.csv](./datasets/turnover.csv) et [turnover_prepared.csv](./datasets/turnover_prepared.csv). Vous trouverez si join le [code source](./TP_MAP6009.ipynb) des expérimentations du [Rapport]() .
+# Detection de l'ivresse au volant
+Prédiction du risque de départ d'un employer a l'aide du dataset [turnover.csv](./datasets/DonneesTestSymptomatiqueDRE_A2012.xlsx) . Vous trouverez si join le [code source](./TP_MAP6009.ipynb) des expérimentations du [Rapport](./rappot/main.tex).
 
 - [Description du dataset](#description-du-dataset)
 - [Avant de Commencer le Travail](#avant-de-commencer-le-travail)
@@ -14,9 +14,9 @@ Prédiction du risque de départ d'un employer a l'aide du dataset [turnover.csv
 
 ## Avant de Commencer le Travail
 ### Créer un environnement virtuel python
-`conda create --name tp_map6014 python=3.8`
+`conda create --name ivre_dec python=3.8`
 ### Lancer L'environnement Python 
-`conda activate tp_map6014`
+`conda activate ivre_dec`
 ### Installer jupyter et jupyter kernel
 ```
 conda install jupyter
@@ -26,8 +26,8 @@ pip install bash_kernel
 ```
 ### Créer et installer un nouveau kernel jupyter 
 ```
-ipython kernel install --user --name=tp_map6014
-python -m ipykernel install --user --name=tp_map6014
+ipython kernel install --user --name=ivre_dec
+python -m ipykernel install --user --name=ivre_dec
 python -m bash_kernel.install
 ```
 ### Installation des polices de caracteres suivant votre system
@@ -35,6 +35,8 @@ python -m bash_kernel.install
 `sh setup/ubuntu/font_setup.sh`
 #### Mac os
 `sh setup/macos/font_setup.sh` 
+## Lancer le serveur des logs
+`Make experiments`
 ## Lancer le code source
 `Make open`
 ## Resultats obtenus
