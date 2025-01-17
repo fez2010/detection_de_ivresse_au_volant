@@ -22,15 +22,15 @@ outputs/py/script.py: outputs/txts/script.txt
 outputs/sh/script.sh: outputs/txts/script.txt
 	python setup/convert_txt_script.py 
 
-outputs/txts/script.txt: TP_MAP6009.ipynb
-	jupyter nbconvert TP_MAP6009.ipynb --to script --output outputs/txts/script
+outputs/txts/script.txt: detection_ivress.ipynb
+	jupyter nbconvert detection_ivress.ipynb --to script --output outputs/txts/script
 
 experiments: 
 	mlflow server --host 127.0.0.1 --port 8080 --backend-store-uri sqlite:///data.db &
-open: TP_MAP6009.ipynb
-	jupyter execute TP_MAP6009.ipynb --allow-errors
-TP_MAP6009.ipynb:
-	wget https://raw.githubusercontent.com/fez2010/tp_map6014/refs/heads/main/TP_MAP6009.ipynb
+open: detection_ivress.ipynb
+	jupyter execute detection_ivress.ipynb --allow-errors
+detection_ivress.ipynb:
+	wget https://raw.githubusercontent.com/fez2010/detection_de_ivresse_au_volant/refs/heads/main/detection_ivress.ipynb
 clean: outputs/py/script.py
 	rm outputs/py/script.py
 	rm outputs/txts/script.txt

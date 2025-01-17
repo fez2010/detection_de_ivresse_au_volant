@@ -1,0 +1,3 @@
+,Test recall,Test f1 micro,Test precision micro,Test accuracy,Test roc auc,#Indice
+E1,0.63,0.61,0.61,0.61,0.65,303
+E2,0.75,0.59,0.59,0.59,0.62,381

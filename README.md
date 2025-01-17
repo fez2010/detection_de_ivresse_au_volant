@@ -1,5 +1,5 @@
 # Detection de l'ivresse au volant
-Prédiction du risque de départ d'un employer a l'aide du dataset [turnover.csv](./datasets/DonneesTestSymptomatiqueDRE_A2012.xlsx) . Vous trouverez si join le [code source](./TP_MAP6009.ipynb) des expérimentations du [Rapport](./rappot/main.tex).
+Prédiction du risque de départ d'un employer a l'aide du dataset [turnover.csv](./datasets/DonneesTestSymptomatiqueDRE_A2012.xlsx) . Vous trouverez si join le [code source](./detection_ivress.ipynb) des expérimentations du [Rapport](./rappot/main.tex).
 
 - [Description du dataset](#description-du-dataset)
 - [Avant de Commencer le Travail](#avant-de-commencer-le-travail)

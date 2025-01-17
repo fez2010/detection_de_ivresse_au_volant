@@ -1,0 +1,67 @@
+\usepackage{tgbonum}
+\usepackage{fontspec}
+\usepackage[utf8]{inputenc}
+\usepackage{ragged2e}
+\usepackage{endnotes,lipsum}
+%-----------------------------------------------------------------
+% Language setting
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{fancyhdr, fancybox}
+\usepackage{tabularx}
+\usepackage{csvsimple}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{mathbbol}
+\usepackage{quoting}
+%-----------------------------------------------------------------
+
+%-----------------------------------------------------------------
+% Set page size and margins
+%-----------------------------------------------------------------
+\usepackage[a4paper,top=2cm,headsep=1.5cm,headheight=0.5cm,bottom=2.5cm,left=4cm,right=2.5cm,marginparwidth=0cm,includehead]{geometry}
+
+%-----------------------------------------------------------------
+% Useful packages
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{emptypage}
+\usepackage[export]{adjustbox}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{nameref}
+\usepackage{hyperref}
+
+
+
+\usepackage{subfiles}
+\usepackage[acronym]{glossaries}
+\usepackage{longtable}
+\usepackage{bookmark}
+\usepackage{caption}
+\usepackage{setspace}
+\usepackage{imakeidx}
+\usepackage{amsmath}
+\usepackage{url}
+%\usepackage[backend=biber, style=ieee]{biblatex}
+%\addbibresource{references.bib}
+
+% Font Familles definition
+\setmainfont{OpenSans}[ 
+Extension = .ttf,
+Path =./fonts/OpenSans/static/,
+UprightFont = *-regular,
+BoldFont = *-Bold, 
+ItalicFont = *-Italic , 
+BoldItalicFont = *-BoldItalic
+]
+
+\newenvironment{ex}
+ {
+  \quoting[leftmargin=1cm,rightmargin=1cm]
+  \noindent \itshape\ignorespaces
+ }
+ {\endquoting}
+\makeindex[columns=3, title=Indexes, options= -s ./styles/index.ist] 
+\makenoidxglossaries
+\input{glossaire.tex}
