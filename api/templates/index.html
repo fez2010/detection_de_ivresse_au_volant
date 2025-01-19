@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        {% load bootstrap3 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{# Display a form #}
+<p>
+<a href="/media/form.pdf">Remplir le formulaire</a>
+<a href="/swagger/">swagger</a>
+<a href="/redoc/">documentation</a>
+</p>
+<form action="/" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+   
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+    {% endbuttons %}
+</form>
+    </body>
+</html>

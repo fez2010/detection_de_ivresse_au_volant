@@ -39,9 +39,12 @@ python -m bash_kernel.install
 `Make experiments`
 ## Lancer le code source
 `Make open`
+## Test
+`python -m unittest discover -s project_directory -p "*_test.py"`
 ## Resultats obtenus
 ## Avant le build
 `Make dep`
+`python manage.py runserver`
 ## Build
 Vous pouvez build le model, pdf...
 `Make build`
