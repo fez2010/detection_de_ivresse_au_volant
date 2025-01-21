@@ -1,0 +1,257 @@
+\documentclass[12pt]{report}
+
+
+\input{imports.tex}
+
+
+%-----------------------------------------------------------------
+
+
+%-----------------------------------------------------------------
+% Font Familles definition
+%\setmainfont{Arial}
+%\setsansfont{Arial}
+%\setmonofont[Color={0019D4}]{Arial}
+%-----------------------------------------------------------------
+
+\pagestyle{fancy} % set page style to fancy%
+\fancyhf{} %clear all header fields  and footer fields
+\fancyhead{} % 
+\fancyhead[LE,RO]{
+  \thepage
+}
+
+
+\renewcommand{\headrulewidth}{0.0pt} % Removes Fancyhdr header line
+\renewcommand{\footrulewidth}{0pt} % Removes Fancyhdr footer line
+\renewcommand{\thesection}{\arabic{section}}
+
+\title{Rapport travail Pratique deux de MAP6014}
+
+\author{Fezeu Ghomsi Eugène Clotaire}
+
+\pagenumbering{roman}
+\begin{document}
+
+\include{pages/first_page.tex}
+\newpage
+\setcounter{page}{2}
+\phantom{1}
+
+\newpage
+\include{pages/abstract.tex}
+\newpage
+% Insert a table of contents
+\phantomsection
+\addcontentsline{toc}{section}{Table des matières}
+\doublespacing
+\tableofcontents{
+\protect\thispagestyle{fancy}
+}
+\addtocontents{toc}{\setcounter{page}{4} \protect\thispagestyle{fancy}}
+\newpage
+\phantomsection
+\addcontentsline{toc}{section}{Liste des tables}
+\listoftables{
+ \protect\thispagestyle{fancy}
+}
+\newpage
+\phantomsection
+\addcontentsline{toc}{section}{Table des figures}
+\listoffigures{
+	 \protect\thispagestyle{fancy}	
+}
+
+
+\newpage
+
+{\singlespacing
+\phantomsection
+\addcontentsline{toc}{section}{Acronymes}
+\setglossarystyle{listgroup}
+\printnoidxglossary[type=\acronymtype]
+\thispagestyle{fancy}
+\newpage
+\phantomsection
+\addcontentsline{toc}{section}{Termes Spéciaux}
+
+\setglossarystyle{listgroup}
+\printnoidxglossary[title=Termes Spéciaux]
+\thispagestyle{fancy}
+}
+\newpage
+
+\input{pages/introduction}
+  
+
+\newpage
+
+
+\section{Context et enjeux}
+\subsection{Context}
+ Le programme de classification d'évaluation des drogues (\acrshort{dec}), est un standard mise au point par le département Américain du \acrfull{nhtsa}  et le \acrshort{iacp}. Il est au centre de La formation développée par la direction de la \acrshort{nhtsa} et de l'\acrshort{iacp} qui vise à préparer les policiers pour procéder à des examens des conducteurs soupçonnés d'avoir les facultés affaiblies par la drogue. il est utilisé par les agents experts en reconnaissance de drogues (\acrshort{erd}) pour déterminer si un suspect est sous l’influence d’une drogue. il comprend douze étapes qui se basent sur un ensemble de signes observables, et de symptômes qui permettent de déterminer si un individue a des capacités affaiblie, les justificatifs et les causes. Les douze étapes du \acrshort{dec} sont: 
+\begin{enumerate}
+    \item le test de la concentration d'alcool,
+    \item un entretien avec l'agent qui a procédé à l'arrestation,
+    \item un examen préliminaire,
+    \item un examen de la vue,
+    \item des tests psychophysiques d'attention partagée,
+    \item la mesure des signes vitaux,
+    \item les examens en chambre noire (examen des pupilles dans trois conditions d'éclairage différentes: lumière ambiante, obscurité quasi totale et lumière directe),
+    \item l'examen du tonus musculaire,
+    \item la vérification des sites d'injection et de la troisième impulsion,
+    \item l'entretien avec le suspect,
+    \item l'analyse et avis de l'évaluateur et
+    \item l'examen toxicologique.
+\end{enumerate}
+Les étapes de reconnaissance et de classification de drogues permettent avec une grande précision de détecté la conduite avec facultés affaiblie. D’âpres le guide de formation des \acrshort{erd} \cite{dre:administrator}: 
+\begin{ex}
+Les résultats de l'évaluation en laboratoire ont montré que les DRE étaient excellents pour identifier les sujets qui ont reçu uniquement des doses de placebo : ils ont classé 95 \% des sujets sans médicament comme "non altérée". De même, ils ont réussi à identifier les sujets ayant reçu la dose élevée. Ils ont classé comme "affaiblis" 98,7 \% des sujets ayant reçu du Secobarbital ou de fortes doses de marijuana, Diazépam ou D-amphétamine. Ils ont correctement identifié la catégorie de drogue pour 91,7\% d'entre eux sujets à forte dose.\cite{dre:administrator}
+\end{ex} Ce constat montre que le programme est fiable mais pas a cent pourcent(100\%). Il peut donc être Améliorer.
+Dans le cadre de la détection des facultés affaiblie, par l'alcool (éthanol) en précision, il se pose le problème de coopération du conducteur\cite{drugModeling}. En l'absence de coopération, certaines informations d’étapes telles que la prisses de sang qui offrent une meilleur discrétisation de la présence ou non d'un ou plusieurs types de drogues ne peuvent être collecter. En plus,
+l'organisme Drug Recognition Expert 7-Day School relatent que d’âpres une série d'examens faits par trente-huit \acrshort{erd}s du LAPPD de la police de Los Angeles sur 173 participants\cite{dre:participant}, <<Trente-sept (21\%) des sujets consommaient une seule drogue autre que l’alcool. Quatre-vingt-deux
+consommaient deux drogues (y compris l'alcool) (47\%) et quarante-trois (25\%) consommaient trois drogues ou plus (y compris l'alcool).>>\cite{dre:participant}, les automobilistes consomment souvent plusieurs type de drogues ensemble ce qui rend difficile leurs identifications individuel. 
+\subsection{Enjeux}
+\acrfull{inspq} relate: \begin{ex}Parmi les 135 conducteurs décédés en 2020 ayant subi un test d’alcoolémie, 31,9 \% avaient une alcoolémie supérieure à la limite permise de 80 mg d’alcool par 100 ml de sang. Ce pourcentage est supérieur à celui de 2019, qui était de 29,0 \%.\cite{INSPQ}
+\end{ex}
+ L'\acrshort{inspq} fait observer une hausse alarmante du taux de morts causé par l’alcoolémie (étude réalise sur un échantillons de personne non exhaustif) mettant ainsi en exergue le caractère urgent de trouver une réponse adapter et efficace face à cette problématique. En ce sens les \acrshort{erd} sont former pour lutter le plus efficacement possible contre la hausse de la tendance des morts. Dans le cadre de leur mission ils doivent se doter d’équipements et d'outils de plus en plus sophistiquer. Notre projet consiste en une application informatique qui permettra d’améliorer l’efficacité et le jugement des agents de terrain (\gls{dre}).
+\section{Problématiques}
+\subsection{Observation des signes}
+Nous dénombrons step grande familles de drogues: \Gls{cnsdepressant} (Alcool, etc.), \gls{cnsstimulant}, \gls{dissociativeanesthetics}, \gls{narcoticanalgesics}, \gls{hallucinogens}, \gls{cannabis} et \gls{inhalants}.
+La détection des facultés affaiblies par l'alcool souffre de plusieurs problèmes le consentement des automobilistes, la précision des informations collectées, la variation des symptômes observables et de l’intervalle des valeurs des symptômes observable. 
+ En effet, les effets des drogues sur l'organisme sont nombreux et les durées d'actions variables(Figure \ref{fig:d1}). 
+ {\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth ]{images/drugs_effects_durations.png}
+ \caption{Durées des effets d'une drogue après absorption }
+ \label{fig:d1}
+\end{figure}}
+ Prisent en combinaison elles ont un \gls{additiveeffect}, \gls{nulleffect}, un \gls{antagonisticeffect} ou un \gls{overlappingeffect}  dépendamment du type de drogues ou de combinaisons de drogues ingérées. Par exemple l'alcool en combinaison avec le cannabis produit une nouvelle molécule.
+ En plus des combinaisons possibles entre les drogues, le temps avant le début des manifestations des effets physiologiques observables, la durée d'action de chacune ainsi que des molécules de synthèse produites par combinaison varient grandement dans le temps par grande famille de drogues. 
+
+\subsection{La collecte des données}
+
+Les données collecter par les agents sont très souvent partielles ou incomplètes. Nous retrouvons des différences entre les modelés de formulaires utiliser par différentes polices. il arrive que les données soient saisies à la main et le diagnostic de l'agent formulé sous forme de texte. Certains formulaires présentent des notes, écrites à la main, de bas de pages et de marges. la figure \ref{fig:f2} présente un exemple de formulaire remplie par un agent. il faut attendre l'examen toxicologique pour valider le diagnostic de l’agent. 
+\newpage
+{\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth, scale=0.9 ]{images/forms.jpg}
+ \caption{Formulaire incomplet d'une personne arrêtée par un agent ERD }
+ \label{fig:f2}
+\end{figure}}
+\newpage
+\section{Collection de données}
+Nous disposons des données sous deux formes:
+\begin{itemize}
+    \item un fichier numériques Excels,
+    \item et un ensemble de formulaires papiers.
+\end{itemize}
+\subsection{le fichier de données}
+{\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.9 ]{images/missings_values.png}
+ \caption{Valeurs manquantes}
+ \label{fig:f3}
+\end{figure}}
+Notre fichier contient une séquence de 116 enregistrements et 46 colonnes: \begin{itemize}
+    \item Les colonnes labels:  Alcool, Dépresseur, Stimulant, Hallucinogène, Anesthésique dissociatif, Narcotique analgésique, Inhalant, Canabis. 
+    \item Les colonnes catégoriels: Paupieres, Stimulus, Pupilles, Test arrêté 1, Perte equilibre, Pouls, Injection, Nistagmus horizontal, Nistagmus vertical, Convergence.
+    \item Les colonnes numeriques: Depot pied, Sautillement, Bras, Balancement,Equi d, Equi g, Pas 2, Pas 1, Inhalant, Pivot incorrect, Utilisation bras, Pas hors ligne, Talon/orteille, Arret marche, Depart hatif, Larmoyant, Conjonctive rouge,Injecté sang, Yeux normaux, Ambiant, Noirceur, Direct,Dilatation bond,Romberg 1,Romberg 2, Romberg 3, Température, Tension a, Tension b, Test toucher
+\end{itemize} . La figure \ref{fig:f3} montre les valeurs manquantes par colonnes.
+\subsection{Les formulaires papier}
+Les formulaires papiers sont rangé par catégories de médicaments. Un grand nombre de formulaires présentent des valeurs manquantes et manquent de fiches supplémentaire du rapport de polices.
+
+
+\section{Modélisation de la solution}
+{\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth, scale=0.9 ]{images/archiet.png}
+ \caption{Architecture de l'application \cite{kinsta}}
+ \label{fig:f5}
+\end{figure}}
+Notre solution pour optimiser et améliore le processus de reconnaissance des faculté affaiblies par l'alcool, consiste en une application informatique qui permet l’état d'une personne a partir d'un ensemble réduit de données collectées, extraites en temps réel ou non,  ou saisies via formulaires. notre application consiste a un client web ou mobile capable de récupéré des informations du client puis les envoyer vers le serveur pour les classées (en temps réels ou non) et en fin présenter les résultats. La figure \ref{fig:f5} montre les différentes composantes de l'application et leurs interactions.
+
+\subsection{Preuve du concepts}
+Pour prouver que notre modelé est réalisable nous allons nous basé sur une étude fait par Silvia Makowskia pour la $27^e$ Conférence internationale sur l'information et l'ingénierie intelligentes et basées sur la connaissance. Il a travaillé sur la Détection de l'ivresse alcoolique à partir des mouvements oculaires. il constate tout d'abord que les performances d'un modèle qui n'utilise pas des informations extraites en coopérations avec l'utilisateur est limité. En plus les véhicules ont déjà les équipements pour extraire les informations (des mouvements oculaires fixationnels et saccadiques
+ainsi que la fermeture des yeux) nécessaires à la surveillance active du conducteur. Pour son étude La distance œil-caméra est de 45 cm et la distance œil-écran est de 63 cm. Avec une ASC de 69\% en population ouverte et de 74\% en population fermée
+réglage pour tous les participants, ainsi on peut conclure qu’un modèle d’apprentissage automatique basé sur le regard et la fermeture des yeux des participants est capable de détecter
+ivresse alcoolique modérée \cite{eyeDetect}. Notre concept prouver nous pouvons modéliser sont fonctionnement.
+
+\subsection{Algorithme de classification}
+{\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth, scale=0.7 ]{images/classification-5.png}
+ \caption{Fonctionnement du modèle de classification}
+ \label{fig:f6}
+\end{figure}}
+Pour notre algorithme de classification nous allons utilise un modèle en plusieurs couches avec en entrée une ligne pour Lemmatiser les données, mettre sous la forme attendue par la couche d’entrée. Puis dans le cadre de l'apprentissage gérer les valeurs manquantes et laisser tel-quelles dans le cadre de la classification. 
+  
+
+
+
+\subsection{Les donnees}
+\scalebox{0.7}{\tiny
+\begin{table}[!ht]
+    \centering
+     \begin{adjustbox}{width=\textwidth}
+    \begin{tabular}{lllllllllllllllllllll}
+        \textbf{index} & \textbf{Testno} & \textbf{Nistagmus horizontal} & \textbf{Nistagmus vertical} & \textbf{Convergence} & \textbf{Pupilles} & \textbf{Stimulus} & \textbf{Paupieres} & \textbf{Ambiant} & \textbf{Noirceur} & \textbf{Direct} & \textbf{Dilatation bond} & \textbf{Reaction lum} & \textbf{Injection} & \textbf{Romberg 1} & \textbf{Romberg 2} & \textbf{Romberg 3} & \textbf{Pouls} & \textbf{Température} & \textbf{Tension a} & \textbf{Tension b} \\ \hline
+        \textbf{0} & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 4.0 & 8.0 & 4.5 & 0.0 & 1.0 & 0 & 0.0 & 0.0 & 30.0 & 100 & 36.4 & 150.0 & 100.0 \\ 
+        \textbf{1} & 2 & 0 & 0 & 1 & 0 & 1 & 0 & 6.5 & 6.5 & 4.5 & 1.0 & 1.0 & 0 & 0.0 & 0.0 & 10.0 & 106 & 36.6 & 170.0 & 100.0 \\ 
+        \textbf{2} & 3 & 1 & 0 & 1 & 0 & 1 & 0 & 7.5 & 7.0 & 4.5 & 1.0 & 0.0 & 0 & 0.0 & 1.0 & 23.0 & 110 & 36.7 & 170.0 & 75.0 \\ 
+        \textbf{3} & 4 & 1 & 0 & 1 & 0 & 1 & 0 & 5.5 & 8.0 & 4.5 & 0.0 & 0.0 & 0 & 0.0 & 0.0 & 30.0 & 120 & 37.0 & 120.0 & 75.0 \\ 
+        \textbf{4} & 5 & 1 & 1 & 1 & 0 & 1 & 1 & 3.0 & 6.5 & 2.0 & 1.0 & 0.0 & 0 & 3.0 & 5.0 & 40.0 & 78 & 36.9 & 145.0 & 90.0 \\ 
+        \textbf{5} & 6 & 1 & 0 & 0 & 0 & 1 & 1 & 3.0 & 7.5 & 3.5 & 0.0 & 1.0 & 0 & 0.0 & 0.0 & 26.0 & 110 & 35.0 & 132.0 & 80.0 \\ 
+        \textbf{6} & 7 & 1 & 0 & 0 & 0 & 1 & 0 & 5.5 & 8.5 & 5.0 & 1.0 & 1.0 & 0 & 5.0 & 5.0 & 90.0 & 88 & 36.6 & 138.0 & 82.0 \\ 
+        \textbf{7} & 8 & 1 & 0 & 1 & 0 & 1 & 0 & 3.0 & 4.0 & 1.5 & 0.0 & 2.0 & 0 & 10.0 & 5.0 & 16.0 & 86 & 35.7 & 126.0 & 70.0 \\ 
+        \textbf{8} & 9 & 1 & 0 & 1 & 0 & 1 & 0 & 5.5 & 8.0 & 4.0 & 0.0 & 1.0 & 0 & 0.0 & 2.0 & 45.0 & 80 & 36.9 & 140.0 & 78.0 \\ 
+        \textbf{9} & 10 & 1 & 0 & 0 & 0 & 1 & 0 & 4.5 & 9.0 & 5.0 & 1.0 & 0.0 & 0 & 0.0 & 0.0 & 40.0 & 106 & 36.6 & 146.0 & 72.0 \\ 
+        \textbf{10} & 11 & 1 & 0 & 0 & 0 & 1 & 1 & 4.0 & 8.5 & 6.5 & 0.0 & 0.0 & 0 & 15.0 & 15.0 & 120.0 & 88 & 34.8 & 110.0 & 70.0 \\ 
+        \textbf{11} & 12 & 1 & 0 & 0 & 0 & 1 & 0 & 4.0 & 8.0 & 3.5 & 0.0 & 1.0 & 1 & 3.0 & 3.0 & 43.0 & 102 & 36.9 & 132.0 & 82.0 \\ 
+        \textbf{12} & 13 & 1 & 0 & 1 & 0 & 1 & 1 & 3.0 & 5.0 & 3.0 & 0.0 & 1.0 & 0 & 3.0 & 3.0 & 22.0 & 76 & 36.1 & 132.0 & 90.0 \\ 
+        \textbf{13} & 14 & 0 & 0 & 1 & 0 & 1 & 1 & 4.5 & 7.5 & 3.0 & 0.0 & 1.0 & 0 & 8.0 & 8.0 & 90.0 & 78 & 35.8 & 108.0 & 68.0 \\ 
+        \textbf{14} & 15 & 1 & 1 & 0 & 0 & 1 & 1 & 3.5 & 6.0 & 3.5 & 0.0 & 1.0 & 0 & 5.0 & 5.0 & 35.0 & 68 & 35.6 & 128.0 & 68.0 \\ 
+        \textbf{15} & 16 & 1 & 0 & 0 & 0 & 1 & 0 & 3.5 & 7.0 & 3.5 & 0.0 & 0.0 & 0 & 0.0 & 0.0 & 43.0 & 76 & 36.9 & 138.0 & 76.0 \\ 
+        \textbf{16} & 17 & 1 & 0 & 0 & 0 & 1 & 1 & 3.0 & 9.5 & 8.5 & 0.0 & 1.0 & 0 & 10.0 & 10.0 & 75.0 & 100 & 36.0 & 130.0 & 90.0 \\ 
+        \textbf{17} & 18 & 1 & 1 & 1 & 0 & 1 & 1 & 3.5 & 8.0 & 4.5 & 1.0 & 1.0 & 0 & 1.25 & 1.25 & 78.0 & 76 & 35.7 & NaN & NaN \\ 
+        \textbf{18} & 19 & 0 & 0 & 1 & 0 & 1 & 0 & 7.0 & 8.5 & 8.0 & 0.0 & 0.0 & 0 & NaN & NaN & 0.0 & 104 & 37.8 & 148.0 & 104.0 \\ 
+        \textbf{19} & 20 & 0 & 0 & 1 & 0 & 1 & 0 & 6.0 & 8.5 & 5.5 & 0.0 & 0.0 & 0 & 0.0 & 7.5 & 10.0 & 112 & 37.7 & 150.0 & 102.0 \\ 
+    \end{tabular}
+\end{table}
+}
+
+\newpage
+\section*{\centering{Conclusion}}
+\label{sec:conclu}
+\addcontentsline{toc}{section}{\nameref{sec:conclu}}
+Rendu a la fin de ce document, nous avons fait ressortir le contexte lié a la détection des facultés affaiblies par l'alcool au volant, les problèmes et proposer une application pour optimiser les solutions existantes. rendu  a ce jour notre application est la phase de développement du modèle de classification.
+\newpage
+\pagenumbering{roman}
+\setcounter{page}{7}
+
+{
+    \singlespacing
+    \thispagestyle{fancy}
+    \fancyhead[LE,RO]{
+          \thepage
+        }
+    \phantomsection
+    \addcontentsline{toc}{section}{Indexes}
+    
+    \printindex
+}
+\newpage
+{\singlespacing
+\centering
+
+\thispagestyle{fancy}
+\fancyhead[LE,RO]{
+  \thepage
+}
+\phantomsection
+\addcontentsline{toc}{section}{Références}
+\bibliographystyle{abbrv}
+\bibliography{references}
+}
+
+\end{document}

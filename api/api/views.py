@@ -9,6 +9,7 @@ class DocForm(forms.Form):
 
 def index(request):
     template = loader.get_template("index.html")
+    context = {}
     if request.method == "POST":
     # create a form instance and populate it with data from the request:
         form = DocForm(request.POST)
@@ -22,5 +23,5 @@ def index(request):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = DocForm()
-    context = {"form": form}
+        context = {"form": form}
     return HttpResponse(template.render(context, request))

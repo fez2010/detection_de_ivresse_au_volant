@@ -39,7 +39,10 @@ def pdecode_and_name(value):
     d = dict.fromkeys(LABELS,0)
     value = pdecode(value)
     for i in range(len(LABELS)):
-      d[LABELS[i]] = int(value[i])
+      if i < len(value):
+        d[LABELS[i]] = int(value[i])
+      else:
+        d[LABELS[i]] = 0
     return d
 f_scaler = load('./models/scaler.joblib')
 encodeurs = load('./models/encodeurs.joblib')
